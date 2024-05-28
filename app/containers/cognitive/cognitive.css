@@ -1,0 +1,288 @@
+.imageIcon {
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    border-radius: 8px;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.physical {
+    align-self: stretch;
+    position: relative;
+    line-height: 150%;
+    font-weight: 500;
+}
+.copy {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.card {
+    width: 404px;
+    height: 434px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.author {
+    align-self: stretch;
+    position: relative;
+    line-height: 150%;
+    font-weight: 500;
+    color: #828282;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.copy1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+}
+.card1 {
+    width: 404px;
+    height: 434px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.cards {
+    position: absolute;
+    top: 2739px;
+    left: 81px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+}
+.otherPages {
+    position: absolute;
+    top: 2663px;
+    left: 80px;
+    font-size: 40px;
+    line-height: 110%;
+    font-weight: 600;
+    display: inline-block;
+    width: 625px;
+}
+.conclusion {
+    margin: 0;
+}
+.paragraph {
+    position: absolute;
+    width: 58.47%;
+    top: 2337px;
+    left: 12.71%;
+    line-height: 150%;
+    font-weight: 500;
+    display: inline-block;
+}
+.paragraph1 {
+    position: absolute;
+    width: 58.47%;
+    top: 1216px;
+    left: 19.03%;
+    line-height: 150%;
+    font-weight: 500;
+    display: inline-block;
+}
+.cognitive {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: -0.02em;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+}
+.navigatingAWebsite {
+    width: 1030px;
+    position: relative;
+    font-size: 24px;
+    line-height: 150%;
+    color: #828282;
+    display: flex;
+    align-items: center;
+}
+.articleTitle {
+    position: absolute;
+    width: 50.9%;
+    top: 197px;
+    right: 35.63%;
+    left: 13.47%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    font-size: 64px;
+}
+.speech {
+    position: relative;
+    line-height: 150%;
+    font-weight: 500;
+}
+.button {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 16px;
+    color: #fff;
+}
+.items {
+    position: absolute;
+    top: 56px;
+    right: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 48px;
+}
+.disabilityAwarenessRemovebgIcon {
+    position: absolute;
+    top: 25px;
+    right: 1246px;
+    width: 243px;
+    height: 133px;
+    object-fit: cover;
+}
+.navigation {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: #fff;
+    height: 164px;
+    overflow: hidden;
+}
+.company {
+    align-self: stretch;
+    position: relative;
+    line-height: 150%;
+    font-weight: 500;
+    color: #000;
+}
+.items1 {
+    position: absolute;
+    top: 48px;
+    right: 517px;
+    width: 187px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+}
+.items2 {
+    position: absolute;
+    top: 48px;
+    right: 298px;
+    width: 187px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+}
+.items3 {
+    position: absolute;
+    top: 48px;
+    right: 80px;
+    width: 187px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+}
+.disabilityWebsite2024 {
+    position: absolute;
+    top: 52px;
+    left: 80px;
+    font-size: 24px;
+    line-height: 150%;
+    color: #000;
+}
+.buttonsIcon {
+    width: 40px;
+    position: relative;
+    border-radius: 4px;
+    height: 40px;
+    object-fit: cover;
+}
+.socialIcons {
+    position: absolute;
+    top: 176px;
+    left: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.divider {
+    position: absolute;
+    top: 0.5px;
+    left: 79.5px;
+    border-top: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    width: 1281px;
+    height: 1px;
+}
+.navigationFooter {
+    position: absolute;
+    width: 100%;
+    top: 3293px;
+    right: 1px;
+    left: -1px;
+    background-color: #fff;
+    height: 264px;
+    overflow: hidden;
+    font-size: 16px;
+    color: #454545;
+}
+.dalle20240527192845A {
+    position: absolute;
+    top: 491px;
+    left: 167px;
+    width: 1106px;
+    height: 641px;
+    object-fit: cover;
+}
+.dalle20240527193551A {
+    position: absolute;
+    top: 2030px;
+    left: 70px;
+    width: 1188px;
+    height: 275px;
+    object-fit: cover;
+}
+.page2 {
+    width: 100%;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    height: 3557px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 20px;
+    color: #000;
+    font-family: Inter;
+}
+
