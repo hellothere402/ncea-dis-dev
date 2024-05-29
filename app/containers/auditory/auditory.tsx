@@ -1,26 +1,26 @@
 import type { NextPage } from 'next';
 import styles from './index.module.css';
-
+import Image from 'next/image';
 
 const Auditory:NextPage = () => {
   	return (
     		<div className={styles.page6}>
       			<div className={styles.cards}>
         				<div className={styles.card}>
-          					<img className={styles.imageIcon} alt="" src="Image.png" />
+          					<Image className={styles.imageIcon} alt="" src="Image.png" />
           					<div className={styles.copy}>
             						<div className={styles.physical}>Physical</div>
           					</div>
         				</div>
         				<div className={styles.card1}>
-          					<img className={styles.imageIcon} alt="" src="Image.png" />
+          					<Image className={styles.imageIcon} alt="" src="Image.png" />
           					<div className={styles.copy1}>
             						<div className={styles.physical}>Title</div>
             						<div className={styles.author}>Author</div>
           					</div>
         				</div>
         				<div className={styles.card}>
-          					<img className={styles.imageIcon} alt="" src="Image.png" />
+          					<Image className={styles.imageIcon} alt="" src="Image.png" />
           					<div className={styles.copy}>
             						<div className={styles.physical}>Auditory</div>
           					</div>
@@ -58,7 +58,7 @@ const Auditory:NextPage = () => {
                 								<div className={styles.speech}>More</div>
               							</div>
             						</div>
-            						<img className={styles.disabilityAwarenessRemovebgIcon} alt="" src="Disability_Awareness-removebg-preview 1.png" />
+            						<Image className={styles.disabilityAwarenessRemovebgIcon} alt="" src="Disability_Awareness-removebg-preview 1.png" />
           					</div>
           					<div className={styles.navigationFooter}>
             						<div className={styles.items1}>
@@ -81,15 +81,15 @@ const Auditory:NextPage = () => {
             						</div>
             						<div className={styles.disabilityWebsite2024}>Disability Website 2024</div>
             						<div className={styles.socialIcons}>
-              							<img className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
-              							<img className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
-              							<img className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
-              							<img className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
+              							<Image className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
+              							<Image className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
+              							<Image className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
+              							<Image className={styles.buttonsIcon} alt="" src="Buttons / Icon.png" />
             						</div>
             						<div className={styles.divider} />
           					</div>
-          					<img className={styles.dalle20240527192845A} alt="" src="DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website 1.png" />
-          					<img className={styles.dalle20240527193551A} alt="" src="DALL·E 2024-05-27 19.35.51 - A modern, aesthetic illustration of a person struggling with cognitive disabilities while using a cluttered website 1.png" />
+          					<Image className={styles.dalle20240527192845A} alt="" src="DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website 1.png" />
+          					<Image className={styles.dalle20240527193551A} alt="" src="DALL·E 2024-05-27 19.35.51 - A modern, aesthetic illustration of a person struggling with cognitive disabilities while using a cluttered website 1.png" />
           					</div>);
           					};
           					
