@@ -29,20 +29,20 @@ const Speech:NextPage = () => {
       			<div className={styles.otherPages}>Other Pages</div>
       			<div className={styles.paragraph}>
         				<p className={styles.conclusion}>Conclusion</p>
-        				<p className={styles.conclusion}>&apos;</p>
+        				<p className={styles.conclusion}>`&apos`;</p>
         				<p className={styles.conclusion}>Creating an accessible web environment for individuals with cognitive disabilities requires thoughtful design and consideration of the unique challenges these users face. By simplifying navigation, managing information load, providing assistive features, and minimizing distractions, web designers can create more inclusive online experiences. Prioritizing accessibility not only benefits users with cognitive disabilities but also enhances the overall usability and satisfaction for all website visitors.</p>
       			</div>
       			<div className={styles.paragraph1}>
         				<p className={styles.conclusion}>Understanding Cognitive Disabilities and Web Navigation</p>
-        				<p className={styles.conclusion}>&apos;</p>
+        				<p className={styles.conclusion}>`&apos`;</p>
         				<p className={styles.conclusion}>Cognitive disabilities encompass a wide range of conditions that affect an individual's mental processes, including memory, problem-solving, attention, and comprehension. People with cognitive disabilities may have difficulty with reading, understanding complex instructions, staying focused on tasks, or remembering sequences of actions. These challenges can make navigating websites particularly daunting, as users may struggle with confusing layouts, intricate menus, or the sheer volume of information presented.</p>
-          					<p className={styles.conclusion}>&apos;</p>
+          					<p className={styles.conclusion}>`&apos`;</p>
           					<p className={styles.conclusion}>Common Barriers Faced by Users:</p>
-          					<p className={styles.conclusion}>&apos;</p>
+          					<p className={styles.conclusion}>`&apos`;</p>
           					<p className={styles.conclusion}>Complex Navigation Structures: Websites with complicated navigation systems can be overwhelming for users with cognitive disabilities. Multiple layers of menus, lack of clear labels, and inconsistent placement of navigation elements can lead to confusion and frustration.</p>
-          					<p className={styles.conclusion}>&apos;</p>
+          					<p className={styles.conclusion}>`&apos`;</p>
           					<p className={styles.conclusion}>Information Overload: Websites often present large amounts of information on a single page, which can be overwhelming and difficult to process for users with cognitive disabilities. Long paragraphs, technical jargon, and dense content can hinder comprehension and retention.</p>
-          					<p className={styles.conclusion}>&apos;</p>
+          					<p className={styles.conclusion}>`&apos`;</p>
           					<p className={styles.conclusion}>Memory Demands: Many websites require users to remember multiple steps to complete a task, such as filling out forms or navigating through e-commerce checkouts. For individuals with cognitive disabilities, remembering these steps can be a significant challenge, leading to incomplete or abandoned tasks.</p>
           					</div>
           					<div className={styles.articleTitle}>
