@@ -129,7 +129,7 @@ const Cognitive: React.FC = () => (
           { title: "Auditory", src: "https://cdn.builder.io/api/v1/image/assets/TEMP/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f?apiKey=400e6d64691245068da30088a66e8bb2&" },
         ].map((item, index) => (
           <article key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-            <img loading="lazy" src={item.src} className="w-full aspect-[1.06]" alt={`${item.title} Thumbnail`} />
+            <Image loading="lazy" src={item.src} className="w-full aspect-[1.06]" alt={`${item.title} Thumbnail`} />
             <h4 className="mt-6 text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8">
               {item.title}
             </h4>
