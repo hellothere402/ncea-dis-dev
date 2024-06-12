@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from 'next/image';
 
 type NavItemProps = {
   text: string;
@@ -42,7 +43,7 @@ export default function About() {
             </div>
           </article>
           <aside className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-            <img
+            <Image
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b022a91cfae569f5d3762c3a9a829ded3443d772ae845bf5d3ea8f678629e?apiKey=400e6d64691245068da30088a66e8bb2&"
               alt="An inclusive digital community illustration"
@@ -57,25 +58,25 @@ export default function About() {
           Disability Website 2024
         </div>
         <div className="flex gap-2 self-start mt-24 max-md:mt-10">
-          <img
+          <Image
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&"
             alt="Social media icon 1"
             className="shrink-0 w-10 aspect-square"
           />
-          <img
+          <Image
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&"
             alt="Social media icon 2"
             className="shrink-0 w-10 aspect-square"
           />
-          <img
+          <Image
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&"
             alt="Social media icon 3"
             className="shrink-0 w-10 aspect-square"
           />
-          <img
+          <Image
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&"
             alt="Social media icon 4"

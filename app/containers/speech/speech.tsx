@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from 'next/image';
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -55,12 +56,6 @@ interface ImageProps {
   className: string;
 }
 
-const Image: React.FC<ImageProps> = ({ src, alt, className }) => (
-  <figure>
-    <img loading="lazy" src={src} alt={alt} className={className} />
-  </figure>
-);
-
 interface FooterProps {
   companyName: string;
   footerLinks: { category: string; links: string[] }[];
@@ -74,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ companyName, footerLinks }) => (
         <div className="text-2xl leading-9 text-black">{companyName}</div>
         <div className="flex gap-2 pr-20 mt-24 max-md:pr-5 max-md:mt-10">
           {["https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&", "https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&", "https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&", "https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&"].map((src, index) => (
-            <img key={index} loading="lazy" src={src} alt="" className="shrink-0 w-10 aspect-square" />
+            <Image key={index} loading="lazy" src={src} alt="" className="shrink-0 w-10 aspect-square" />
           ))}
         </div>
       </div>

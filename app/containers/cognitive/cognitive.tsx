@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 
 type NavbarProps = {
   items: string[];
@@ -18,7 +19,7 @@ type FooterProps = {
 
 const Navbar: React.FC<NavbarProps> = ({ items }) => (
   <header className="flex gap-5 justify-between pt-6 pr-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-    <img
+    <Image
       loading="lazy"
       src="https://cdn.builder.io/api/v1/image/assets/TEMP/08ff16ef3b2100c9c8586591cfa62a7c8ed17d18ef4c745bd0560e0ceff98538?apiKey=400e6d64691245068da30088a66e8bb2&"
       className="shrink-0 max-w-full aspect-[1.45] w-[194px]"
@@ -43,7 +44,7 @@ const Section: React.FC<SectionProps> = ({ title, content, imageUrl }) => (
       {title}
     </h2>
     <p className="mt-6 ml-32 text-2xl leading-9 text-zinc-500 max-md:max-w-full">{content}</p>
-    <img
+    <Image
       loading="lazy"
       src={imageUrl}
       className="self-center mt-12 w-full aspect-[1.72] max-w-[1106px] max-md:mt-10 max-md:max-w-full"
@@ -60,7 +61,7 @@ const Footer: React.FC<FooterProps> = ({ companyName, socialImages, links }) => 
         <h3 className="text-2xl leading-9 text-black">{companyName}</h3>
         <div className="flex gap-2 mt-24 max-md:mt-10">
           {socialImages.map((src, idx) => (
-            <img
+            <Image
               key={idx}
               loading="lazy"
               src={src}
@@ -106,7 +107,7 @@ const Cognitive: React.FC = () => (
         <li>Memory Demands: Many websites require users to remember multiple steps to complete a task, such as filling out forms or navigating through e-commerce checkouts. For individuals with cognitive disabilities, remembering these steps can be a significant challenge, leading to incomplete or abandoned tasks.</li>
       </ul>
     </article>
-    <img
+    <Image
       loading="lazy"
       src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ea053d85e9802a6b1fc2c679f38cf9a611c548d2b5094056bd8e0710769bb8?apiKey=400e6d64691245068da30088a66e8bb2&"
       className="mt-10 w-full aspect-[4.35] max-md:max-w-full"

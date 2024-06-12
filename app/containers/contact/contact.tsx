@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import Image from 'next/image';
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
@@ -39,10 +39,10 @@ const Footer: React.FC = () => (
     <div className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
     <div className="mt-16 text-2xl leading-9 text-black max-md:mt-10 max-md:max-w-full">Disability Website 2024</div>
     <div className="flex gap-2 self-start mt-24 max-md:mt-10">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 1" className="shrink-0 w-10 aspect-square" />
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 2" className="shrink-0 w-10 aspect-square" />
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 3" className="shrink-0 w-10 aspect-square" />
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 4" className="shrink-0 w-10 aspect-square" />
+      <Image src="https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 1" className="shrink-0 w-10 aspect-square" />
+      <Image src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 2" className="shrink-0 w-10 aspect-square" />
+      <Image src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 3" className="shrink-0 w-10 aspect-square" />
+      <Image src="https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social Icon 4" className="shrink-0 w-10 aspect-square" />
     </div>
   </footer>
 );
@@ -76,7 +76,7 @@ const MainContent: React.FC = () => (
           </div>
         </form>
         <div className="flex flex-col ml-5 w-[54%] max-md:ml-0 max-md:w-full">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fd3b00d8e2f452c1f1fd73f79200753eb70d5da2387449ce67ea57f841a06f70?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Contact us visual" className="w-full aspect-[1.45] max-md:max-w-full" />
+          <Image src="https://cdn.builder.io/api/v1/image/assets/TEMP/fd3b00d8e2f452c1f1fd73f79200753eb70d5da2387449ce67ea57f841a06f70?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Contact us visual" className="w-full aspect-[1.45] max-md:max-w-full" />
         </div>
       </div>
     </section>

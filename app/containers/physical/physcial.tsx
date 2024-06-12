@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from 'next/image';
 
 type ButtonProps = {
   label: string;
@@ -18,7 +19,7 @@ type ImageWithTextProps = {
 
 const ImageWithText: React.FC<ImageWithTextProps> = ({ src, alt, label }) => (
   <div className="flex flex-col grow text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8">
-    <img loading="lazy" src={src} alt={alt} className="w-full aspect-[1.06]" />
+    <Image loading="lazy" src={src} alt={alt} className="w-full aspect-[1.06]" />
     <div className="mt-6">{label}</div>
   </div>
 );
@@ -35,7 +36,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => (
 
 const NavBar: React.FC = () => (
   <nav className="flex gap-5 justify-between pt-6 pr-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-    <img
+    <Image
       loading="lazy"
       src="https://cdn.builder.io/api/v1/image/assets/TEMP/08ff16ef3b2100c9c8586591cfa62a7c8ed17d18ef4c745bd0560e0ceff98538?apiKey=400e6d64691245068da30088a66e8bb2&"
       alt="Logo"
@@ -57,10 +58,10 @@ const Footer: React.FC = () => (
       <div className="flex flex-col self-start mt-3.5">
         <div className="text-2xl leading-9 text-black">Disability Website 2024</div>
         <div className="flex gap-2 pr-20 mt-24 max-md:pr-5 max-md:mt-10">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 1" className="shrink-0 w-10 aspect-square" />
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 2" className="shrink-0 w-10 aspect-square" />
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 3" className="shrink-0 w-10 aspect-square" />
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 4" className="shrink-0 w-10 aspect-square" />
+          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 1" className="shrink-0 w-10 aspect-square" />
+          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 2" className="shrink-0 w-10 aspect-square" />
+          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 3" className="shrink-0 w-10 aspect-square" />
+          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 4" className="shrink-0 w-10 aspect-square" />
         </div>
       </div>
       <div className="flex-auto max-md:max-w-full">
@@ -104,7 +105,7 @@ const Physical: React.FC = () => {
         <section className="self-start mt-6 ml-24 text-2xl leading-9 text-zinc-500 max-md:max-w-full">
           Navigating a website can present significant challenges for individuals with Physical disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users.
         </section>
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3e7bb0fd526e0017ce1f01d1d1eaa333f1962a461d8ed23d4856bf1c7c6287e3?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Example image" className="self-center mt-20 w-full aspect-[1.75] max-w-[1045px] max-md:mt-10 max-md:max-w-full" />
+        <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3e7bb0fd526e0017ce1f01d1d1eaa333f1962a461d8ed23d4856bf1c7c6287e3?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Example image" className="self-center mt-20 w-full aspect-[1.75] max-w-[1045px] max-md:mt-10 max-md:max-w-full" />
         <article className="self-center mt-44 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
           Understanding Physical hardships in Navigating a website:
           <br />
@@ -116,7 +117,7 @@ const Physical: React.FC = () => {
           <br />
           <br />
         </article>
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/699fec279db57750feac25d818e53a85751580a7d330a77443c8c495dcc9a389?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Infographic" className="self-center mt-32 w-full aspect-[3.23] max-w-[1151px] max-md:mt-10 max-md:max-w-full" />
+        <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/699fec279db57750feac25d818e53a85751580a7d330a77443c8c495dcc9a389?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Infographic" className="self-center mt-32 w-full aspect-[3.23] max-w-[1151px] max-md:mt-10 max-md:max-w-full" />
         <section className="mt-16 ml-20 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
           Another important aspect is the implementation of ARIA (Accessible Rich Internet Applications) landmarks, which provide additional context to assistive technologies about the structure and functionality of web elements. Ensuring sufficient color contrast and allowing users to adjust text size can also greatly improve accessibility. By integrating these practices, web developers can create a more inclusive online environment. This not only benefits individuals with physical disabilities but also enhances the overall user experience for everyone. Through thoughtful design and a commitment to accessibility, we can break down barriers and ensure that the digital world is open to all.
         </section>
