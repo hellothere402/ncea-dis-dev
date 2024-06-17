@@ -1,0 +1,134 @@
+.recycling__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 6rem;
+}
+
+.recycling__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.recycling__navbar-links_logo {
+    margin-right: 2rem;
+}
+
+.recycling__navbar-links_logo img {
+   width: 62.56px;
+   height: 75.02px;
+}
+
+.recycling__navbar-links_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.recycling__navbar-sign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.recycling__navbar-links_container p,
+.recycling__navbar-sign p,
+.recycling__navbar-menu_container p {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+
+    margin: 0 1rem;
+    cursor: pointer;
+}
+   
+.recycling__navbar-sign button,
+.recycling__navbar-menu_container button {
+   padding: 0.5rem 1rem;
+   color: #fff;
+   background: #ff4820;
+   font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.recycling__navbar-menu {
+    margin-left: 1rem;
+
+    display: none;
+    position: relative;
+}
+
+.recycling__navbar-menu svg {
+    cursor: pointer;
+}
+
+.recycling__navbar-menu_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    text-align: end;
+    background: var(--color-footer);
+    position: absolute;
+    right : 0;
+    top: 40px;
+    margin-top: 1rem;
+    min-width: 210px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
+}
+
+.recycling__navbar-menu_container p {
+   margin: 1rem 0;
+}
+
+.recycling__navbar-menu_container-links-sign {
+    display: none;
+}
+
+@media screen and (max-width: 1050px) {
+    .recycling__navbar-links_container {
+        display: none;
+    }
+
+    .recycling__navbar-menu {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .recycling__navbar {
+        padding: 2rem 4rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .recycling__navbar {
+        padding: 2rem;
+    }
+
+    .recycling__navbar-sign {
+        display: none;
+    }
+}
+
+.recycling__navbar-menu_container {
+    top: 20px;
+}
+
+.recycling__navbar-menu-container-links-sign {
+    display: block;
+}
