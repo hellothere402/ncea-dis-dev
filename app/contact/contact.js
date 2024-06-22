@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   }
 }
 
-export default function Contact() {
+const Contact = () => {
   const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
   const [message, setMessage] = useState('');
 
