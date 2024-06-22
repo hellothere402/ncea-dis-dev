@@ -1,27 +1,32 @@
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type ButtonProps = {
   label: string;
+  href: string;
 };
 
-const Button: React.FC<ButtonProps> = ({ label }) => (
-  <button className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm max-md:px-5">
-    {label}
-  </button>
+const Button: React.FC<ButtonProps> = ({ label, href }) => (
+  <Link href={href}>
+    <button className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm max-md:px-5 hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+      {label}
+    </button>
+  </Link>
 );
 
 type ImageWithTextProps = {
   src: string;
   alt: string;
   label: string;
+  href: string;
 };
 
-const ImageWithText: React.FC<ImageWithTextProps> = ({ src, alt, label }) => (
-  <div className="flex flex-col grow text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8">
-    <Image loading="lazy" src={src} alt={alt} className="w-full aspect-[1.06]" />
+const ImageWithText: React.FC<ImageWithTextProps> = ({ src, alt, label, href }) => (
+  <Link href={href} className="flex flex-col grow text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8 hover:text-gray-600 transition-colors">
+    <Image src={src} alt={alt} width={400} height={377} className="w-full aspect-[1.06]" />
     <div className="mt-6">{label}</div>
-  </div>
+  </Link>
 );
 
 type SectionTitleProps = {
@@ -36,17 +41,20 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => (
 
 const NavBar: React.FC = () => (
   <nav className="flex gap-5 justify-between pt-6 pr-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-    <Image
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/08ff16ef3b2100c9c8586591cfa62a7c8ed17d18ef4c745bd0560e0ceff98538?apiKey=400e6d64691245068da30088a66e8bb2&"
-      alt="Logo"
-      className="shrink-0 max-w-full aspect-[1.45] w-[194px]"
-    />
+    <Link href="/">
+      <Image
+        src="/Disability_Awareness-removebg-preview.png"
+        alt="Logo"
+        width={194}
+        height={134}
+        className="shrink-0 max-w-full aspect-[1.45] w-[194px]"
+      />
+    </Link>
     <div className="flex gap-5 items-center my-auto max-md:flex-wrap">
-      <div className="self-stretch my-auto">Cognitive</div>
-      <div className="self-stretch my-auto">Auditory</div>
-      <div className="self-stretch my-auto">Speech</div>
-      <Button label="Home" />
+      <Link href="/cognitive" className="self-stretch my-auto hover:text-gray-600 transition-colors">Cognitive</Link>
+      <Link href="/auditory" className="self-stretch my-auto hover:text-gray-600 transition-colors">Auditory</Link>
+      <Link href="/speech" className="self-stretch my-auto hover:text-gray-600 transition-colors">Speech</Link>
+      <Button label="Home" href="/" />
     </div>
   </nav>
 );
@@ -58,38 +66,29 @@ const Footer: React.FC = () => (
       <div className="flex flex-col self-start mt-3.5">
         <div className="text-2xl leading-9 text-black">Disability Website 2024</div>
         <div className="flex gap-2 pr-20 mt-24 max-md:pr-5 max-md:mt-10">
-          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 1" className="shrink-0 w-10 aspect-square" />
-          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 2" className="shrink-0 w-10 aspect-square" />
-          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 3" className="shrink-0 w-10 aspect-square" />
-          <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Social icon 4" className="shrink-0 w-10 aspect-square" />
+          {['facebook', 'twitter', 'instagram', 'linkedin'].map((social, index) => (
+            <Image key={index} src={`/social-icons/${social}.png`} alt={`${social} icon`} width={40} height={40} className="shrink-0 w-10 aspect-square" />
+          ))}
         </div>
       </div>
       <div className="flex-auto max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
-              <div className="text-black">Company</div>
-              <div className="mt-6">About</div>
-              <div className="mt-6">Contact</div>
-              <div className="mt-6">Policies</div>
+          {[
+            { title: "Company", links: ["About", "Contact", "Policies"] },
+            { title: "More", links: ["Physical", "Auditory", "Speech"] },
+            { title: "Help", links: ["Policies", "About", "Contact"] },
+          ].map((section, index) => (
+            <div key={index} className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+              <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+                <div className="text-black">{section.title}</div>
+                {section.links.map((link, linkIndex) => (
+                  <Link key={linkIndex} href={`/${link.toLowerCase()}`} className="mt-6 hover:text-gray-600 transition-colors">
+                    {link}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
-              <div className="text-black">More</div>
-              <div className="mt-6">Physical</div>
-              <div className="mt-6">Auditory</div>
-              <div className="mt-6">Speech</div>
-            </div>
-          </div>
-          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
-              <div className="text-black">Help</div>
-              <div className="mt-6">Policies</div>
-              <div className="mt-6">About</div>
-              <div className="mt-6">Contact</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -105,30 +104,30 @@ const Physical: React.FC = () => {
         <section className="self-start mt-6 ml-24 text-2xl leading-9 text-zinc-500 max-md:max-w-full">
           Navigating a website can present significant challenges for individuals with Physical disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users.
         </section>
-        <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3e7bb0fd526e0017ce1f01d1d1eaa333f1962a461d8ed23d4856bf1c7c6287e3?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Example image" className="self-center mt-20 w-full aspect-[1.75] max-w-[1045px] max-md:mt-10 max-md:max-w-full" />
+        <Image src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp" alt="Example image" width={1045} height={597} className="self-center mt-20 w-full aspect-[1.75] max-w-[1045px] max-md:mt-10 max-md:max-w-full" />
         <article className="self-center mt-44 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
-          Understanding Physical hardships in Navigating a website:
-          <br />
-          <br />
-          Navigating websites can be particularly challenging for individuals with physical disabilities, who often depend on assistive devices like screen readers, adaptive keyboards, and voice recognition software. These devices help users interact with digital content, but many websites are not optimized for such technologies, leading to significant barriers. Common issues include forms that are difficult to fill out using a keyboard, buttons that are not properly labeled for screen readers, and navigation menus that are complex and hard to use without a mouse.
-          <br />
-          <br />
-          These challenges can be addressed by adopting inclusive design practices. Ensuring all interactive elements, such as buttons and links, are accessible via keyboard shortcuts is crucial. Additionally, using semantic HTML tags helps screen readers accurately interpret and convey content. Designers should also provide clear and concise labels for all form fields and interactive elements, and avoid relying solely on visual cues to convey important information.
-          <br />
-          <br />
+          <h3>Understanding Physical hardships in Navigating a website:</h3>
+          <p>
+            Navigating websites can be particularly challenging for individuals with physical disabilities, who often depend on assistive devices like screen readers, adaptive keyboards, and voice recognition software. These devices help users interact with digital content, but many websites are not optimized for such technologies, leading to significant barriers. Common issues include forms that are difficult to fill out using a keyboard, buttons that are not properly labeled for screen readers, and navigation menus that are complex and hard to use without a mouse.
+          </p>
+          <p>
+            These challenges can be addressed by adopting inclusive design practices. Ensuring all interactive elements, such as buttons and links, are accessible via keyboard shortcuts is crucial. Additionally, using semantic HTML tags helps screen readers accurately interpret and convey content. Designers should also provide clear and concise labels for all form fields and interactive elements, and avoid relying solely on visual cues to convey important information.
+          </p>
         </article>
-        <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/699fec279db57750feac25d818e53a85751580a7d330a77443c8c495dcc9a389?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Infographic" className="self-center mt-32 w-full aspect-[3.23] max-w-[1151px] max-md:mt-10 max-md:max-w-full" />
+        <Image src="/DALL·E 2024-05-28 18.56.14 - A cool and engaging illustration for the welcome page of a website about disability. The scene features abstract elements representing inclusivity and.webp" alt="Infographic" width={1151} height={356} className="self-center mt-32 w-full aspect-[3.23] max-w-[1151px] max-md:mt-10 max-md:max-w-full" />
         <section className="mt-16 ml-20 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
-          Another important aspect is the implementation of ARIA (Accessible Rich Internet Applications) landmarks, which provide additional context to assistive technologies about the structure and functionality of web elements. Ensuring sufficient color contrast and allowing users to adjust text size can also greatly improve accessibility. By integrating these practices, web developers can create a more inclusive online environment. This not only benefits individuals with physical disabilities but also enhances the overall user experience for everyone. Through thoughtful design and a commitment to accessibility, we can break down barriers and ensure that the digital world is open to all.
+          <p>
+            Another important aspect is the implementation of ARIA (Accessible Rich Internet Applications) landmarks, which provide additional context to assistive technologies about the structure and functionality of web elements. Ensuring sufficient color contrast and allowing users to adjust text size can also greatly improve accessibility. By integrating these practices, web developers can create a more inclusive online environment. This not only benefits individuals with physical disabilities but also enhances the overall user experience for everyone. Through thoughtful design and a commitment to accessibility, we can break down barriers and ensure that the digital world is open to all.
+          </p>
         </section>
         <h2 className="mt-16 text-4xl font-semibold leading-10 text-black max-md:mt-10 max-md:max-w-full">Other Pages</h2>
         <section className="mt-8 max-w-full w-[840px]">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-              <ImageWithText src="https://cdn.builder.io/api/v1/image/assets/TEMP/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Physical category" label="Physical" />
+              <ImageWithText src="/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657.png" alt="Cognitive category" label="Cognitive" href="/cognitive" />
             </div>
             <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-              <ImageWithText src="https://cdn.builder.io/api/v1/image/assets/TEMP/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f?apiKey=400e6d64691245068da30088a66e8bb2&" alt="Auditory category" label="Auditory" />
+              <ImageWithText src="/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f.png" alt="Auditory category" label="Auditory" href="/auditory" />
             </div>
           </div>
         </section>
