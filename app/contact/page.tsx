@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image';
+
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
@@ -92,3 +93,5 @@ const Contact: React.FC = () => (
 );
 
 export default Contact;
+
+

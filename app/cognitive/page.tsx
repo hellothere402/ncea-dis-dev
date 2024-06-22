@@ -1,5 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
+import Link from 'next/link';
+import {useRouter} from 'next/router';
 
 type NavbarProps = {
   items: string[];
@@ -13,27 +15,33 @@ type SectionProps = {
 
 type FooterProps = {
   companyName: string;
-  socialImages: string[];
+  socialImages: Array<{ src: string; width: number; height: number }>;
   links: { title: string; items: string[] }[];
 };
 
 const Navbar: React.FC<NavbarProps> = ({ items }) => (
   <header className="flex gap-5 justify-between pt-6 pr-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
+    <Link href="/">
     <Image
       loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/08ff16ef3b2100c9c8586591cfa62a7c8ed17d18ef4c745bd0560e0ceff98538?apiKey=400e6d64691245068da30088a66e8bb2&"
+      src="/Disability_Awareness-removebg-preview.png"
       className="shrink-0 max-w-full aspect-[1.45] w-[194px]"
       alt="Company Logo"
+      width={100} 
+      height={100}
     />
+  </Link>
     <nav className="flex gap-5 items-center my-auto max-md:flex-wrap">
       {items.map((item, index) => (
-        <a href={`#${item.toLowerCase()}`} className="self-stretch my-auto" key={index}>
+        <Link href={`/${item.toLowerCase()}`} key={index} className="self-stretch my-auto">
           {item}
-        </a>
+        </Link>
       ))}
+      <Link href="/">
       <button className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm max-md:px-5">
         Home
       </button>
+    </Link>
     </nav>
   </header>
 );
@@ -49,6 +57,8 @@ const Section: React.FC<SectionProps> = ({ title, content, imageUrl }) => (
       src={imageUrl}
       className="self-center mt-12 w-full aspect-[1.72] max-w-[1106px] max-md:mt-10 max-md:max-w-full"
       alt={title}
+      width={100}
+      height={100}
     />
   </section>
 );
@@ -60,13 +70,15 @@ const Footer: React.FC<FooterProps> = ({ companyName, socialImages, links }) => 
       <div className="flex flex-col">
         <h3 className="text-2xl leading-9 text-black">{companyName}</h3>
         <div className="flex gap-2 mt-24 max-md:mt-10">
-          {socialImages.map((src, idx) => (
+          {socialImages.map((img, idx) => (
             <Image
               key={idx}
               loading="lazy"
-              src={src}
+              src={img.src}
               className="shrink-0 w-10 aspect-square"
               alt={`${companyName} social link ${idx + 1}`}
+              width={img.width}
+              height={img.height}
             />
           ))}
         </div>
@@ -87,13 +99,13 @@ const Footer: React.FC<FooterProps> = ({ companyName, socialImages, links }) => 
   </footer>
 );
 
-const Cognitive: React.FC = () => (
+const CognitivePage: React.FC = () => (
   <main>
     <Navbar items={["Cognitive", "Auditory", "Speech"]} />
     <Section
       title="Cognitive"
       content="Navigating a website can present significant challenges for individuals with cognitive disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users."
-      imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/a88e8ea6f3cc9f15aed7c4d0db45d8ee004a22c975b8bcc1b592375433b02839?apiKey=400e6d64691245068da30088a66e8bb2&"
+      imageUrl="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp"
     />
     <article className="self-center mt-24 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
       <h3>Understanding Cognitive Disabilities and Web Navigation</h3>
@@ -109,9 +121,11 @@ const Cognitive: React.FC = () => (
     </article>
     <Image
       loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ea053d85e9802a6b1fc2c679f38cf9a611c548d2b5094056bd8e0710769bb8?apiKey=400e6d64691245068da30088a66e8bb2&"
+      src="/02ea053d85e9802a6b1fc2c679f38cf9a611c548d2b5094056bd8e0710769bb8.png"
       className="mt-10 w-full aspect-[4.35] max-md:max-w-full"
       alt="Example cognitive loading image"
+      width={100} 
+      height={100}
     />
     <section className="self-center mt-10 text-xl font-medium leading-8 text-black w-[842px] max-md:max-w-full">
       <h3>Conclusion</h3>
@@ -125,11 +139,11 @@ const Cognitive: React.FC = () => (
     <section className="mt-8 ml-3 max-w-full w-[840px]">
       <div className="flex gap-5 max-md:flex-col max-md:gap-0">
         {[
-          { title: "Physical", src: "https://cdn.builder.io/api/v1/image/assets/TEMP/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657?apiKey=400e6d64691245068da30088a66e8bb2&" },
-          { title: "Auditory", src: "https://cdn.builder.io/api/v1/image/assets/TEMP/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f?apiKey=400e6d64691245068da30088a66e8bb2&" },
+          { title: "Physical", src: "/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657.png" },
+          { title: "Auditory", src: "/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f.png" },
         ].map((item, index) => (
           <article key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-            <Image loading="lazy" src={item.src} className="w-full aspect-[1.06]" alt={`${item.title} Thumbnail`} />
+            <Image loading="lazy" src={item.src} className="w-full aspect-[1.06]" alt={`${item.title} Thumbnail`} width={100} height={100} />
             <h4 className="mt-6 text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8">
               {item.title}
             </h4>
@@ -140,10 +154,7 @@ const Cognitive: React.FC = () => (
     <Footer
       companyName="Disability Website 2024"
       socialImages={[
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/199c9a3c64fa87237dabe74b1aff1fe617935141f37a07ba364b7012e90e628c?apiKey=400e6d64691245068da30088a66e8bb2&",
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/b1bac3668b19309ab1c82835d154f9962b24bad9c262723d53374e3173c3e762?apiKey=400e6d64691245068da30088a66e8bb2&",
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/c9c8d64becb556072cf4288b2dadd32d18a3ce8e19d5cc15f298f66d1125313b?apiKey=400e6d64691245068da30088a66e8bb2&",
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/0828515f09127d365461d17e1036e88788811bd5c0258116139d171a870fbe56?apiKey=400e6d64691245068da30088a66e8bb2&",
+      { src: "/Social Icons.png", width: 40, height: 40 }
       ]}
       links={[
         { title: "Company", items: ["About", "Contact", "Polices"] },
@@ -154,4 +165,4 @@ const Cognitive: React.FC = () => (
   </main>
 );
 
-export default Cognitive;
+export default CognitivePage;
