@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ items }) => (
         </Link>
       ))}
       <Link href="/">
-      <button className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm max-md:px-5">
+      <button className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-white rounded-lg shadow-sm max-md:px-5">
         Home
       </button>
     </Link>
@@ -100,6 +100,7 @@ const Footer: React.FC<FooterProps> = ({ companyName, socialImages, links }) => 
 );
 
 const CognitivePage: React.FC = () => (
+<div className="bg-white min-h-screen">
   <main>
     <Navbar items={["Cognitive", "Auditory", "Speech"]} />
     <Section
@@ -163,6 +164,7 @@ const CognitivePage: React.FC = () => (
       ]}
     />
   </main>
+</div>
 );
 
 export default CognitivePage;
