@@ -3,92 +3,68 @@ import Image from "next/image";
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 
-type NavbarProps = {
-  items: string[];
+type NavLinkProps = {
+  href: string;
+  children: React.ReactNode;
 };
 
-type SectionProps = {
-  title: string;
-  content: string;
-  imageUrl: string;
-};
-
-type FooterProps = {
-  companyName: string;
-  socialImages: Array<{ src: string; width: number; height: number }>;
-  links: { title: string; items: string[] }[];
-};
-
-const Navbar: React.FC<NavbarProps> = ({ items }) => (
-  <header className="flex gap-5 justify-between pt-6 pr-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-    <Link href="/">
-    <Image
-      loading="lazy"
-      src="/Disability_Awareness-removebg-preview.png"
-      className="shrink-0 max-w-full aspect-[1.45] w-[194px]"
-      alt="Company Logo"
-      width={100} 
-      height={100}
-    />
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
+  <Link href={href} className="self-stretch my-auto hover:text-gray-600 transition-colors">
+    {children}
   </Link>
-    <nav className="flex gap-5 items-center my-auto max-md:flex-wrap">
-      {items.map((item, index) => (
-        <Link href={`/${item.toLowerCase()}`} key={index} className="self-stretch my-auto">
-          {item}
+);
+
+const Header: React.FC = () => {
+  return (
+    <header className="flex justify-between items-center px-20 py-4 w-full bg-white shadow-sm max-md:px-5 max-md:flex-col">
+      <div className="flex items-center">
+        <Link href="/">
+          <Image
+            src="/Disability_Awareness-removebg-preview.png"
+            alt="Company Logo"
+            width={96}
+            height={66}
+            className="object-contain"
+          />
         </Link>
-      ))}
-      <Link href="/">
-      <button className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-white rounded-lg shadow-sm max-md:px-5">
-        Home
-      </button>
-    </Link>
-    </nav>
-  </header>
-);
-
-const Section: React.FC<SectionProps> = ({ title, content, imageUrl }) => (
-  <section className="flex flex-col items-start self-center mt-8 w-full max-w-[1203px] max-md:max-w-full">
-    <h2 className="ml-32 text-6xl font-bold tracking-tighter text-black border border-black border-solid max-md:max-w-full max-md:text-4xl">
-      {title}
-    </h2>
-    <p className="mt-6 ml-32 text-2xl leading-9 text-zinc-500 max-md:max-w-full">{content}</p>
-    <Image
-      loading="lazy"
-      src={imageUrl}
-      className="self-center mt-12 w-full aspect-[1.72] max-w-[1106px] max-md:mt-10 max-md:max-w-full"
-      alt={title}
-      width={100}
-      height={100}
-    />
-  </section>
-);
-
-const Footer: React.FC<FooterProps> = ({ companyName, socialImages, links }) => (
-  <footer className="flex flex-col px-20 pb-12 mt-32 w-full bg-white max-md:px-5 max-md:mt-10 max-md:max-w-full">
-    <hr className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
-    <div className="prose flex justify-between mt-12 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
-      <div className="flex flex-col">
-        <h3 className="text-2xl leading-9 text-black">{companyName}</h3>
-        <div className="flex gap-2 mt-24 max-md:mt-10">
-          {socialImages.map((img, idx) => (
-            <Image
-              key={idx}
-              loading="lazy"
-              src={img.src}
-              className="shrink-0 w-10 aspect-square"
-              alt={`${companyName} social link ${idx + 1}`}
-              width={img.width}
-              height={img.height}
-            />
-          ))}
+        <div className="text-xl font-medium leading-8 text-black ml-4">
+          Disability Website 2024
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-6 w-full">
-        {links.map((link, idx) => (
+      <nav className="flex gap-5 items-center text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-4">
+        <NavLink href="/cognitive">Cognitive</NavLink>
+        <NavLink href="/auditory">Auditory</NavLink>
+        <NavLink href="/speech">Speech</NavLink>
+        <NavLink href="/">
+          <button className="px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-colors">
+            Home
+          </button>
+        </NavLink>
+      </nav>
+    </header>
+  );
+};
+
+const Footer: React.FC = () => (
+  <footer className="flex flex-col px-20 pb-12 mt-16 w-full bg-white max-md:px-5 max-md:mt-10 max-md:max-w-full">
+    <div className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
+    <div className="flex gap-5 mt-12 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
+      <div className="flex flex-col self-start mt-3.5">
+        <div className="text-2xl leading-9 text-black">Disability Website 2024</div>
+        <div className="flex gap-2 pr-3.5 mt-8">
+          <Image src="/Social Icons.png" alt="Social Icons" width={100} height={40} />
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-6 ml-auto">
+        {[
+          { title: "Company", items: ["About", "Contact", "Policies"] },
+          { title: "More", items: ["Physical", "Auditory", "Speech"] },
+          { title: "Help", items: ["Policies", "About", "Contact"] },
+        ].map((section, idx) => (
           <nav key={idx} className="flex flex-col text-base font-medium leading-6 text-zinc-700">
-            <h4 className="text-black">{link.title}</h4>
-            {link.items.map((item, index) => (
-              <a key={index} href={`#${item.toLowerCase()}`} className="mt-6">
+            <h4 className="text-black mb-4">{section.title}</h4>
+            {section.items.map((item, index) => (
+              <a key={index} href={`#${item.toLowerCase()}`} className="mt-2 hover:text-black transition-colors">
                 {item}
               </a>
             ))}
@@ -100,71 +76,74 @@ const Footer: React.FC<FooterProps> = ({ companyName, socialImages, links }) => 
 );
 
 const CognitivePage: React.FC = () => (
-<div className="bg-white min-h-screen">
-  <main>
-    <Navbar items={["Cognitive", "Auditory", "Speech"]} />
-    <Section
-      title="Cognitive"
-      content="Navigating a website can present significant challenges for individuals with cognitive disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users."
-      imageUrl="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp"
-    />
-    <article className="self-center mt-24 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
-      <h3>Understanding Cognitive Disabilities and Web Navigation</h3>
-      <p>
-        Cognitive disabilities encompass a wide range of conditions that affect an individual's mental processes, including memory, problem-solving, attention, and comprehension. People with cognitive disabilities may have difficulty with reading, understanding complex instructions, staying focused on tasks, or remembering sequences of actions. These challenges can make navigating websites particularly daunting, as users may struggle with confusing layouts, intricate menus, or the sheer volume of information presented.
-      </p>
-      <h3>Common Barriers Faced by Users:</h3>
-      <ul>
-        <li>Complex Navigation Structures: Websites with complicated navigation systems can be overwhelming for users with cognitive disabilities. Multiple layers of menus, lack of clear labels, and inconsistent placement of navigation elements can lead to confusion and frustration.</li>
-        <li>Information Overload: Websites often present large amounts of information on a single page, which can be overwhelming and difficult to process for users with cognitive disabilities. Long paragraphs, technical jargon, and dense content can hinder comprehension and retention.</li>
-        <li>Memory Demands: Many websites require users to remember multiple steps to complete a task, such as filling out forms or navigating through e-commerce checkouts. For individuals with cognitive disabilities, remembering these steps can be a significant challenge, leading to incomplete or abandoned tasks.</li>
-      </ul>
-    </article>
-    <Image
-      loading="lazy"
-      src="/02ea053d85e9802a6b1fc2c679f38cf9a611c548d2b5094056bd8e0710769bb8.png"
-      className="mt-10 w-full aspect-[4.35] max-md:max-w-full"
-      alt="Example cognitive loading image"
-      width={100} 
-      height={100}
-    />
-    <section className="self-center mt-10 text-xl font-medium leading-8 text-black w-[842px] max-md:max-w-full">
-      <h3>Conclusion</h3>
-      <p>
-        Creating an accessible web environment for individuals with cognitive disabilities requires thoughtful design and consideration of the unique challenges these users face. By simplifying navigation, managing information load, providing assistive features, and minimizing distractions, web designers can create more inclusive online experiences. Prioritizing accessibility not only benefits users with cognitive disabilities but also enhances the overall usability and satisfaction for all website visitors.
-      </p>
-    </section>
-    <aside className="mt-24 ml-2.5 text-4xl font-semibold leading-10 text-black max-md:mt-10">
-      Other Pages
-    </aside>
-    <section className="mt-8 ml-3 max-w-full w-[840px]">
-      <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-        {[
-          { title: "Physical", src: "/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657.png" },
-          { title: "Auditory", src: "/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f.png" },
-        ].map((item, index) => (
-          <article key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-            <Image loading="lazy" src={item.src} className="w-full aspect-[1.06]" alt={`${item.title} Thumbnail`} width={100} height={100} />
-            <h4 className="mt-6 text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8">
-              {item.title}
-            </h4>
-          </article>
-        ))}
-      </div>
-    </section>
-    <Footer
-      companyName="Disability Website 2024"
-      socialImages={[
-      { src: "/Social Icons.png", width: 40, height: 40 }
-      ]}
-      links={[
-        { title: "Company", items: ["About", "Contact", "Polices"] },
-        { title: "More", items: ["Physical", "Auditory", "Speech"] },
-        { title: "Help", items: ["Polices", "About", "Contact"] },
-      ]}
-    />
-  </main>
-</div>
+  <div className="flex flex-col min-h-screen bg-white">
+    <Header />
+    <main className="flex-grow">
+      <section className="flex flex-col items-center mt-12 px-4">
+        <h1 className="text-6xl font-bold tracking-tighter text-center text-black mb-6 max-md:text-4xl">
+          Cognitive
+        </h1>
+        <p className="text-xl leading-8 text-zinc-700 max-w-3xl text-center mb-12">
+          Navigating a website can present significant challenges for individuals with cognitive disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users.
+        </p>
+        <Image
+          src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp"
+          alt="Cognitive Disabilities Illustration"
+          width={1000}
+          height={581}
+          className="w-full max-w-4xl h-auto mb-16"
+        />
+      </section>
+
+      <article className="max-w-3xl mx-auto px-4 text-lg leading-7 text-zinc-700">
+        <h2 className="text-3xl font-semibold text-black mb-4">Understanding Cognitive Disabilities and Web Navigation</h2>
+        <p className="mb-6">
+          Cognitive disabilities encompass a wide range of conditions that affect an individual's mental processes, including memory, problem-solving, attention, and comprehension. People with cognitive disabilities may have difficulty with reading, understanding complex instructions, staying focused on tasks, or remembering sequences of actions. These challenges can make navigating websites particularly daunting, as users may struggle with confusing layouts, intricate menus, or the sheer volume of information presented.
+        </p>
+        <h3 className="text-2xl font-semibold text-black mb-4">Common Barriers Faced by Users:</h3>
+        <ul className="list-disc pl-6 mb-6">
+          <li className="mb-2">Complex Navigation Structures: Websites with complicated navigation systems can be overwhelming for users with cognitive disabilities. Multiple layers of menus, lack of clear labels, and inconsistent placement of navigation elements can lead to confusion and frustration.</li>
+          <li className="mb-2">Information Overload: Websites often present large amounts of information on a single page, which can be overwhelming and difficult to process for users with cognitive disabilities. Long paragraphs, technical jargon, and dense content can hinder comprehension and retention.</li>
+          <li>Memory Demands: Many websites require users to remember multiple steps to complete a task, such as filling out forms or navigating through e-commerce checkouts. For individuals with cognitive disabilities, remembering these steps can be a significant challenge, leading to incomplete or abandoned tasks.</li>
+        </ul>
+        <Image
+          src="/02ea053d85e9802a6b1fc2c679f38cf9a611c548d2b5094056bd8e0710769bb8.png"
+          alt="Example cognitive loading image"
+          width={1000}
+          height={230}
+          className="w-full h-auto my-8"
+        />
+        <h2 className="text-3xl font-semibold text-black mb-4">Conclusion</h2>
+        <p className="mb-8">
+          Creating an accessible web environment for individuals with cognitive disabilities requires thoughtful design and consideration of the unique challenges these users face. By simplifying navigation, managing information load, providing assistive features, and minimizing distractions, web designers can create more inclusive online experiences. Prioritizing accessibility not only benefits users with cognitive disabilities but also enhances the overall usability and satisfaction for all website visitors.
+        </p>
+      </article>
+
+      <section className="max-w-4xl mx-auto px-4 mt-16">
+        <h2 className="text-4xl font-semibold text-black mb-8">Other Pages</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            { title: "Physical", src: "/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657.png" },
+            { title: "Auditory", src: "/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f.png" },
+          ].map((item, index) => (
+            <article key={index} className="flex flex-col">
+              <Image 
+                src={item.src} 
+                alt={`${item.title} Thumbnail`} 
+                width={400} 
+                height={377} 
+                className="w-full h-auto rounded-lg shadow-md"
+              />
+              <h3 className="mt-4 text-2xl font-medium text-black">
+                {item.title}
+              </h3>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
 );
 
 export default CognitivePage;
