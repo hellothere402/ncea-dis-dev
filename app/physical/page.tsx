@@ -22,9 +22,11 @@ type ImageWithTextProps = {
   href: string;
 };
 
-const ImageWithText: React.FC<ImageWithTextProps> = ({ src, alt, label, href }) => (
-  <Link href={href} className="flex flex-col grow text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-8 hover:text-gray-600 transition-colors">
-    <Image src={src} alt={alt} width={400} height={377} className="w-full aspect-[1.06]" />
+const ImageWithText: React.FC<{ src: string; alt: string; label: string; href: string }> = ({ src, alt, label, href }) => (
+  <Link href={href} className="flex flex-col text-xl font-medium leading-8 text-black whitespace-nowrap hover:text-gray-600 transition-colors">
+    <div className="relative w-full aspect-[1.06]">
+      <Image src={src} alt={alt} layout="fill" objectFit="cover" className="rounded-lg" />
+    </div>
     <div className="mt-6">{label}</div>
   </Link>
 );
@@ -33,10 +35,10 @@ type SectionTitleProps = {
   title: string;
 };
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => (
-  <h2 className="self-start ml-24 text-6xl font-bold tracking-tighter text-black border border-black border-solid max-md:max-w-full max-md:text-4xl">
+const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
+  <h1 className="text-6xl font-bold tracking-tighter text-black text-center mb-6 max-md:text-4xl">
     {title}
-  </h2>
+  </h1>
 );
 
 const NavBar: React.FC = () => (
@@ -65,10 +67,8 @@ const Footer: React.FC = () => (
     <div className="flex gap-5 px-px mt-12 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
       <div className="flex flex-col self-start mt-3.5">
         <div className="text-2xl leading-9 text-black">Disability Website 2024</div>
-        <div className="flex gap-2 pr-20 mt-24 max-md:pr-5 max-md:mt-10">
-          {['facebook', 'twitter', 'instagram', 'linkedin'].map((social, index) => (
-            <Image key={index} src={`/social-icons/${social}.png`} alt={`${social} icon`} width={40} height={40} className="shrink-0 w-10 aspect-square" />
-          ))}
+        <div className="flex gap-2 mt-8">
+          <Image src="/Social Icons.png" alt="Social Icons" width={100} height={40} />
         </div>
       </div>
       <div className="flex-auto max-md:max-w-full">
@@ -97,38 +97,60 @@ const Footer: React.FC = () => (
 
 const Physical: React.FC = () => {
   return (
-    <div className="flex flex-col bg-white border border-black border-solid shadow-sm">
+    <div className="flex flex-col min-h-screen bg-white">
       <NavBar />
-      <main className="flex flex-col self-center px-5 mt-8 w-full max-w-[1216px] max-md:max-w-full">
+      <main className="flex-grow flex flex-col items-center px-5 mt-8 w-full max-w-[1216px] mx-auto">
         <SectionTitle title="Physical" />
-        <section className="self-start mt-6 ml-24 text-2xl leading-9 text-zinc-500 max-md:max-w-full">
+        <section className="mt-6 text-2xl leading-9 text-zinc-700 max-w-3xl text-center">
           Navigating a website can present significant challenges for individuals with Physical disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users.
         </section>
-        <Image src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp" alt="Example image" width={1045} height={597} className="self-center mt-20 w-full aspect-[1.75] max-w-[1045px] max-md:mt-10 max-md:max-w-full" />
-        <article className="self-center mt-44 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
-          <h3>Understanding Physical hardships in Navigating a website:</h3>
-          <p>
+        <div className="relative w-full max-w-[1045px] aspect-[1.75] mt-16">
+          <Image 
+            src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp" 
+            alt="Person with physical disability using a computer" 
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg shadow-md" 
+          />
+        </div>
+        <article className="mt-16 text-xl leading-8 text-gray-800 max-w-3xl">
+          <h3 className="text-3xl font-semibold text-black mb-6">Understanding Physical Hardships in Navigating a Website:</h3>
+          <p className="mb-6">
             Navigating websites can be particularly challenging for individuals with physical disabilities, who often depend on assistive devices like screen readers, adaptive keyboards, and voice recognition software. These devices help users interact with digital content, but many websites are not optimized for such technologies, leading to significant barriers. Common issues include forms that are difficult to fill out using a keyboard, buttons that are not properly labeled for screen readers, and navigation menus that are complex and hard to use without a mouse.
           </p>
-          <p>
+          <p className="mb-6">
             These challenges can be addressed by adopting inclusive design practices. Ensuring all interactive elements, such as buttons and links, are accessible via keyboard shortcuts is crucial. Additionally, using semantic HTML tags helps screen readers accurately interpret and convey content. Designers should also provide clear and concise labels for all form fields and interactive elements, and avoid relying solely on visual cues to convey important information.
           </p>
         </article>
-        <Image src="/DALL·E 2024-05-28 18.56.14 - A cool and engaging illustration for the welcome page of a website about disability. The scene features abstract elements representing inclusivity and.webp" alt="Infographic" width={1151} height={356} className="self-center mt-32 w-full aspect-[3.23] max-w-[1151px] max-md:mt-10 max-md:max-w-full" />
-        <section className="mt-16 ml-20 text-xl font-medium leading-8 text-black w-[842px] max-md:mt-10 max-md:max-w-full">
+        <div className="relative w-full max-w-[1151px] aspect-[3.23] mt-16">
+          <Image 
+            src="/DALL·E 2024-05-27 19.35.51 - A modern, aesthetic illustration of a person struggling with cognitive disabilities while using a cluttered website. The person sits at a stylish, min.webp" 
+            alt="Inclusive web design infographic" 
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg shadow-md" 
+          />
+        </div>
+        <section className="mt-16 text-xl leading-8 text-gray-800 max-w-3xl">
           <p>
             Another important aspect is the implementation of ARIA (Accessible Rich Internet Applications) landmarks, which provide additional context to assistive technologies about the structure and functionality of web elements. Ensuring sufficient color contrast and allowing users to adjust text size can also greatly improve accessibility. By integrating these practices, web developers can create a more inclusive online environment. This not only benefits individuals with physical disabilities but also enhances the overall user experience for everyone. Through thoughtful design and a commitment to accessibility, we can break down barriers and ensure that the digital world is open to all.
           </p>
         </section>
-        <h2 className="mt-16 text-4xl font-semibold leading-10 text-black max-md:mt-10 max-md:max-w-full">Other Pages</h2>
-        <section className="mt-8 max-w-full w-[840px]">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-              <ImageWithText src="/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657.png" alt="Cognitive category" label="Cognitive" href="/cognitive" />
-            </div>
-            <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-              <ImageWithText src="/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f.png" alt="Auditory category" label="Auditory" href="/auditory" />
-            </div>
+        <h2 className="mt-24 text-4xl font-semibold text-black self-start">Other Pages</h2>
+        <section className="mt-8 w-full max-w-[840px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ImageWithText 
+              src="/55db86a6dd33606019d032ab48fe3500746a5b0884ee625bbaa47dc1494ba657.png" 
+              alt="Cognitive category" 
+              label="Cognitive" 
+              href="/cognitive" 
+            />
+            <ImageWithText 
+              src="/24686e906e0a3f49ac248bf6a420775f9823bc738c1a73300d7481edea251f6f.png" 
+              alt="Auditory category" 
+              label="Auditory" 
+              href="/auditory" 
+            />
           </div>
         </section>
       </main>
