@@ -101,30 +101,47 @@ interface FooterProps {
   footerLinks: { category: string; links: string[] }[];
 }
 
-const Footer: React.FC<FooterProps> = ({ companyName, footerLinks }) => (
-  <footer className="flex flex-col px-20 pb-12 mt-16 w-full bg-white max-md:px-5 max-md:mt-10 max-md:max-w-full">
-    <hr className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
-    <div className="flex gap-5 px-px mt-12 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
+const Footer: React.FC<FooterProps> = ({companyName, footerLinks}) => (
+  <footer className="flex flex-col px-20 pb-12 mt-5 w-full bg-white max-md:px-5 max-md:max-w-full">
+    <div className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
+    <div className="flex gap-5 mt-12 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
       <div className="flex flex-col self-start mt-3.5">
-        <div className="text-2xl leading-9 text-black">{companyName}</div>
-        <div className="flex gap-2 pr-20 mt-8 max-md:pr-5 max-md:mt-10">
-          <Image src="/Social Icons.png" alt="Social Icons" width={100} height={40} />
+        <div className="text-2xl leading-9 text-black">Disability Website</div>
+        <div className="flex gap-2 pr-3.5 mt-24 max-md:mt-10">
+          <Image
+            src="/Social Icons.png"
+            alt="Social Icon 1"
+            width={200}
+            height={200}
+          />
         </div>
       </div>
       <div className="flex-auto max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          {footerLinks.map((category, index) => (
-            <div key={index} className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
-                <div className="text-black">{category.category}</div>
-                {category.links.map((link, linkIndex) => (
-                  <Link key={linkIndex} href={`/${link.toLowerCase()}`} className="mt-6 hover:text-gray-600 transition-colors">
-                    {link}
-                  </Link>
-                ))}
-              </div>
+          <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow justify-center mr-8 text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+              <div className="text-black">Pages</div>
+              <NavLink href="/physical"><div className="mt-6">Physical</div></NavLink>
+              <NavLink href="/auditory"><div className="mt-6">Auditory</div></NavLink>
+              <NavLink href="/cognitive"><div className="mt-6">Cognitive</div></NavLink>
             </div>
-          ))}
+          </div>
+          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+              <div className="text-black">About</div>
+              <NavLink href="/"><div className="mt-6">Home</div></NavLink>
+              <NavLink href="/contact"><div className="mt-6">Contact</div></NavLink>
+              <NavLink href="/help"><div className="mt-6">Help</div></NavLink>
+            </div>
+          </div>
+          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+              <div className="text-black">More</div>
+              <NavLink href="/cognitive"><div className="mt-6">Cognitive</div></NavLink>
+              <NavLink href="/contact"><div className="mt-6">Contact</div></NavLink>
+              <NavLink href="/auditory"><div className="mt-6">Auditory</div></NavLink>
+            </div>
+          </div>
         </div>
       </div>
     </div>

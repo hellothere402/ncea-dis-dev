@@ -44,31 +44,53 @@ const Header: React.FC = () => {
   );
 };
 
-const Footer: React.FC = () => (
-  <footer className="flex flex-col px-20 pb-12 mt-16 w-full bg-white max-md:px-5 max-md:mt-10 max-md:max-w-full">
+interface FooterProps {
+  companyName: string;
+  footerLinks: { category: string; links: string[] }[];
+}
+
+const Footer: React.FC<FooterProps> = ({companyName, footerLinks}) => (
+  <footer className="flex flex-col px-20 pb-12 mt-5 w-full bg-white max-md:px-5 max-md:max-w-full">
     <div className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
     <div className="flex gap-5 mt-12 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
       <div className="flex flex-col self-start mt-3.5">
-        <div className="text-2xl leading-9 text-black">Disability Website 2024</div>
-        <div className="flex gap-2 pr-3.5 mt-8">
-          <Image src="/Social Icons.png" alt="Social Icons" width={100} height={40} />
+        <div className="text-2xl leading-9 text-black">Disability Website</div>
+        <div className="flex gap-2 pr-3.5 mt-24 max-md:mt-10">
+          <Image
+            src="/Social Icons.png"
+            alt="Social Icon 1"
+            width={200}
+            height={200}
+          />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-6 ml-auto">
-        {[
-          { title: "Company", items: ["About", "Contact", "Policies"] },
-          { title: "More", items: ["Physical", "Auditory", "Speech"] },
-          { title: "Help", items: ["Policies", "About", "Contact"] },
-        ].map((section, idx) => (
-          <nav key={idx} className="flex flex-col text-base font-medium leading-6 text-zinc-700">
-            <h4 className="text-black mb-4">{section.title}</h4>
-            {section.items.map((item, index) => (
-              <Link key={index} href={`/${item.toLowerCase()}`} className="mt-2 hover:text-black transition-colors">
-                {item}
-              </Link>
-            ))}
-          </nav>
-        ))}
+      <div className="flex-auto max-md:max-w-full">
+        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+          <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow justify-center mr-8 text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+              <div className="text-black">Pages</div>
+              <NavLink href="/physical"><div className="mt-6">Physical</div></NavLink>
+              <NavLink href="/auditory"><div className="mt-6">Auditory</div></NavLink>
+              <NavLink href="/cognitive"><div className="mt-6">Cognitive</div></NavLink>
+            </div>
+          </div>
+          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+              <div className="text-black">About</div>
+              <NavLink href="/"><div className="mt-6">Home</div></NavLink>
+              <NavLink href="/contact"><div className="mt-6">Contact</div></NavLink>
+              <NavLink href="/help"><div className="mt-6">Help</div></NavLink>
+            </div>
+          </div>
+          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow justify-center text-base font-medium leading-6 whitespace-nowrap text-zinc-700 max-md:mt-8">
+              <div className="text-black">More</div>
+              <NavLink href="/cognitive"><div className="mt-6">Cognitive</div></NavLink>
+              <NavLink href="/contact"><div className="mt-6">Contact</div></NavLink>
+              <NavLink href="/auditory"><div className="mt-6">Auditory</div></NavLink>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
@@ -152,9 +174,15 @@ const AuditoryPage: React.FC = () => {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer companyName="Disability Website 2024"
+        footerLinks={[
+          { category: "Company", links: ["About", "Contact", "Policies"] },
+          { category: "More", links: ["Physical", "Auditory", "Speech"] },
+          { category: "Help", links: ["Policies", "About", "Contact"] },
+        ]}
+      />
     </div>
   );
-}
+};
 
 export default AuditoryPage;
