@@ -104,7 +104,7 @@ const CognitivePage: React.FC = () => (
           Navigating a website can present significant challenges for individuals with cognitive disabilities, impacting their ability to process information, make decisions, and complete tasks efficiently. This page aims to explore the effects of these challenges and provide insights into creating more inclusive and accessible web experiences for all users.
         </p>
         <Image
-          src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp"
+          src="/DALLE2024-05-2719.28.45-Avisuallyappealingcoolillustrationofapersonstrugglingwithcognitivedisabilitieswhileusingaclutteredwebsite.Thepersonissittingata-ezgif.com-webp-to-png-converter.png"
           alt="Cognitive Disabilities Illustration"
           width={1000}
           height={581}

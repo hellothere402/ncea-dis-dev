@@ -165,7 +165,7 @@ const Speech: React.FC = () => {
         />
 
         <Image 
-          src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp" 
+          src="/DALLE2024-05-2719.28.45-Avisuallyappealingcoolillustrationofapersonstrugglingwithcognitivedisabilitieswhileusingaclutteredwebsite.Thepersonissittingata-ezgif.com-webp-to-png-converter.png" 
           alt="Representative image" 
           width={1081} 
           height={640} 
@@ -183,7 +183,7 @@ const Speech: React.FC = () => {
         />
 
         <Image 
-          src="/DALL·E 2024-05-27 19.35.51 - A modern, aesthetic illustration of a person struggling with cognitive disabilities while using a cluttered website. The person sits at a stylish, min.webp" 
+          src="/02ea053d85e9802a6b1fc2c679f38cf9a611c548d2b5094056bd8e0710769bb8.png" 
           alt="Informative graphic" 
           width={1000} 
           height={230} 
