@@ -132,7 +132,7 @@ const Header: React.FC = () => {
             </h1>
           )}
           <ResponsiveImage
-            src="/DALL·E 2024-05-28 18.56.14 - A cool and engaging illustration for the welcome page of a website about disability. The scene features abstract elements representing inclusivity and.webp"
+            src="/DALLE2024-05-2818.56.14-Acoolandengagingillustrationforthewelcomepageofawebsiteaboutdisability.Thescenefeaturesabstractelementsrepresentinginclusivityand-ezgif.com-webp-to-png-converter.png"
             alt="Main Image"
             className="w-full max-w-[1031px] h-auto"
             width={1031}
