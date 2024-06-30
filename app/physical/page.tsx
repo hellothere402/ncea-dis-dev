@@ -41,24 +41,39 @@ const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
   </h1>
 );
 
+const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
+  <Link href={href} className="self-stretch my-auto hover:text-gray-600 transition-colors">
+    {children}
+  </Link>
+);
+
 const NavBar: React.FC = () => (
-  <nav className="flex gap-5 justify-between pt-6 pr-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-    <Link href="/">
-      <Image
-        src="/Disability_Awareness-removebg-preview.png"
-        alt="Logo"
-        width={194}
-        height={134}
-        className="shrink-0 max-w-full aspect-[1.45] w-[194px]"
-      />
-    </Link>
-    <div className="flex gap-5 items-center my-auto max-md:flex-wrap">
-      <Link href="/cognitive" className="self-stretch my-auto hover:text-gray-600 transition-colors">Cognitive</Link>
-      <Link href="/auditory" className="self-stretch my-auto hover:text-gray-600 transition-colors">Auditory</Link>
-      <Link href="/speech" className="self-stretch my-auto hover:text-gray-600 transition-colors">Speech</Link>
-      <Button label="Home" href="/" />
+  <header className="flex justify-between items-center px-20 py-4 w-full bg-white shadow-sm max-md:px-5 max-md:flex-col">
+    <div className="flex items-center">
+      <Link href="/">
+        <Image
+          src="/Disability_Awareness-removebg-preview.png"
+          alt="Logo"
+          width={96}
+          height={66}
+          className="object-contain"
+        />
+      </Link>
+      <div className="text-xl font-medium leading-8 text-black ml-4">
+        Disability Website 2024
+      </div>
     </div>
-  </nav>
+    <nav className="flex gap-5 items-center text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-4">
+      <NavLink href="/cognitive">Cognitive</NavLink>
+      <NavLink href="/auditory">Auditory</NavLink>
+      <NavLink href="/speech">Speech</NavLink>
+      <NavLink href="/">
+        <button className="px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-colors">
+          Home
+        </button>
+      </NavLink>
+    </nav>
+  </header>
 );
 
 const Footer: React.FC = () => (

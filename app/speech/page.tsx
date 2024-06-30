@@ -151,13 +151,7 @@ const Footer: React.FC<FooterProps> = ({companyName, footerLinks}) => (
 const Speech: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="flex gap-5 justify-between pt-6 px-20 pb-1.5 w-full text-xl font-medium leading-8 text-black whitespace-nowrap bg-white max-md:flex-wrap max-md:px-5 max-md:max-w-full">
-        <Link href="/">
-          <Image src="/Disability_Awareness-removebg-preview.png" alt="Logo" width={194} height={134} className="shrink-0 max-w-full aspect-[1.45] w-[194px]" />
-        </Link>
-        <Navigation />
-      </header>
-
+      <Header />
       <main className="flex-grow">
         <SectionHeader
           title="Speech"

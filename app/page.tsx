@@ -26,7 +26,7 @@ const ResponsiveImage: React.FC<ImageProps> = ({ src, alt, className, width, hei
 );
 
 const NavLink: React.FC<LinkProps> = ({ href, children }) => (
-  <Link href={href} className="self-stretch my-auto">
+  <Link href={href} className="self-stretch my-auto hover:text-gray-600 transition-colors">
     {children}
   </Link>
 );
@@ -34,27 +34,26 @@ const NavLink: React.FC<LinkProps> = ({ href, children }) => (
 const MenuButton: React.FC<MenuButtonProps> = ({ text, onClick }) => (
   <button
     onClick={onClick}
-    className="justify-center self-stretch px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm max-md:px-5 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+    className="px-6 py-3.5 text-base text-white bg-black rounded-lg shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-colors"
   >
     {text}
   </button>
 );
-
 const Header: React.FC = () => {
   return (
     <header className="flex justify-between items-center px-20 py-4 w-full bg-white shadow-sm max-md:px-5 max-md:flex-col">
       <div className="flex items-center">
-        <div className="text-xl font-medium leading-8 text-black mr-4">
-          Disability Website 2024
-        </div>
-        <div className="">
-          <ResponsiveImage
+        <Link href="/">
+          <Image
             src="/Disability_Awareness-removebg-preview.png"
-            alt="Header Image"
+            alt="Logo"
+            width={96}
+            height={66}
             className="object-contain"
-            width={150}
-            height={150}
           />
+        </Link>
+        <div className="text-xl font-medium leading-8 text-black ml-4">
+          Disability Website 2024
         </div>
       </div>
       <nav className="flex gap-5 items-center text-xl font-medium leading-8 text-black whitespace-nowrap max-md:mt-4">
@@ -68,6 +67,7 @@ const Header: React.FC = () => {
     </header>
   );
 };
+
   const Footer: React.FC = () => (
     <footer className="flex flex-col px-20 pb-12 mt-5 w-full bg-white max-md:px-5 max-md:max-w-full">
       <div className="shrink-0 h-px border border-solid bg-neutral-200 border-neutral-200 max-md:max-w-full" />
@@ -123,20 +123,20 @@ const Header: React.FC = () => {
     };
   
     return (
-      <div className="flex flex-col bg-white">
+      <div className="flex flex-col min-h-screen bg-white">
         <Header />
-        <main className="flex flex-col items-center mt-12 w-full text-black max-w-[1087px] mx-auto px-4">
+        <main className="flex-grow flex flex-col items-center mt-12 w-full text-black max-w-[1087px] mx-auto px-4">
           {showWelcome && (
             <h1 className="text-6xl font-bold tracking-tighter text-center mb-12 max-md:text-4xl">
               Welcome
             </h1>
           )}
-          <ResponsiveImage
+          <Image
             src="/DALLE2024-05-2818.56.14-Acoolandengagingillustrationforthewelcomepageofawebsiteaboutdisability.Thescenefeaturesabstractelementsrepresentinginclusivityand-ezgif.com-webp-to-png-converter.png"
             alt="Main Image"
             className="w-full max-w-[1031px] h-auto"
-            width={1031}
-            height={721}
+            width={831}
+            height={521}
           />
           <section className="mt-16 max-w-3xl text-center">
             <h2 className="text-4xl font-semibold leading-tight mb-6">
