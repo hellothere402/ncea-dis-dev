@@ -121,7 +121,7 @@ const Physical: React.FC = () => {
         </section>
         <div className="relative w-full max-w-[1045px] aspect-[1.75] mt-16">
           <Image 
-            src="/DALL·E 2024-05-27 19.28.45 - A visually appealing, cool illustration of a person struggling with cognitive disabilities while using a cluttered website. The person is sitting at a.webp" 
+            src="/DALLE2024-05-2719.28.45-Avisuallyappealingcoolillustrationofapersonstrugglingwithcognitivedisabilitieswhileusingaclutteredwebsite.Thepersonissittingata-ezgif.com-webp-to-png-converter.png" 
             alt="Person with physical disability using a computer" 
             layout="fill"
             objectFit="cover"
@@ -139,7 +139,7 @@ const Physical: React.FC = () => {
         </article>
         <div className="relative w-full max-w-[1151px] aspect-[3.23] mt-16">
           <Image 
-            src="/DALL·E 2024-05-27 19.35.51 - A modern, aesthetic illustration of a person struggling with cognitive disabilities while using a cluttered website. The person sits at a stylish, min.webp" 
+            src="/DALLE2024-05-2719.35.51-Amodernaestheticillustrationofapersonstrugglingwithcognitivedisabilitieswhileusingaclutteredwebsite.Thepersonsitsatastylishmin-ezgif.com-webp-to-png-converter.png" 
             alt="Inclusive web design infographic" 
             layout="fill"
             objectFit="cover"
